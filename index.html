@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+      <title>iPhoneOrder</title>
+      <meta charset="utf-8">
+      <meta description="iPhone発注管理用アプリ">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="stylesheet" href="style.css">
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+      <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script><script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </head>
+
+  <body>
+    <div class="container-fluid">
+      <header>
+        <h1 style="font-size: 30px;">iPhone発注管理</h1>
+      </header>
+      <div>
+        <!-- <input type="button" value="行を追加" id="addcol" onclick="addcol()"> -->
+        <!-- 呼び出しボタン -->
+        <button type="button" id="callmodal" class="btn btn-primary" data-toggle="modal" data-target="#modal">
+          発注詳細入力
+        </button>
+        <!-- モーダル・ダイアログ -->
+        <div class="modal fade" id="modal" tabindex="-1">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h4 class="modal-title">発注情報</h4>
+                <button type="button" class="close" data-dismiss="modal"><span> x </span></button>
+              </div>
+              <div class="modal-body">
+                <table class="table">
+                  <tr>
+                    <td >SCTASK#</td><td><input id="sctask" type="text"></td>
+                  </tr>
+                  <tr>
+                    <td >ユーザID</td><td><input id="userid" type="text"></td>
+                  </tr>
+                  <tr>
+                    <td>ユーザ名</td><td><input id="username" type="text"></td>
+                  </tr>
+                  <tr>
+                    <td>会社名</td>
+                    <td>
+                      <select id="company" name="company">
+                        <option value="Sanofi">Sanofi</option>
+                        <option value="SSP">SSP</option>
+                      </select>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>部署</td><td><input id="department" type="text"></td>
+                  </tr>
+                  <tr>
+                    <td>納品先</td>
+                    <td>
+                      <select id="site" name="site">
+                        <option value="初台">初台</option>
+                        <option value="川越">川越</option>
+                      </select>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>備考</td><td><input id="comment" type="text"></td>
+                  </tr>
+                  <tr>
+                    <td>発注ステータス</td>
+                    <td>
+                      <select id="orderst" name="order">
+                        <option value="blank"></option>
+                        <option value="発注準備中">発注準備中</option>
+                        <option value="発注済">発注済</option>
+                      </select>
+                    </td>
+                  </tr>
+                  <!-- <tr>
+                    <td>納品ステータス</td>
+                    <td>
+                      <select id="deliveryst" name="delivery">
+                        <option value="blank"></option>
+                        <option value="発送済">発送済</option>
+                        <option value="発送準備中">発送準備中</option>
+                      </select>
+                    </td>
+                  </tr> -->
+                </table>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
+                <button id="submit" type="button" class="btn btn-primary">登録</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- データ用テーブル -->
+      <div>
+        <table id="datatable" class="table">
+          <tr>
+            <th class="sctask">SCTASK#</th><th>ユーザID</th><th>ユーザ名</th><th>会社名</th><th class="department">部署</th><th>納品サイト</th><th>備考</th><th>発注ステータス</th><th>納品ステータス</th><th></th>
+          </tr>
+        <!--
+          <tr>
+            <td class="sctask"></td>
+            <td></td>
+            <td></td>
+            <td>
+              <select name="company">
+                <option value="sanofi"></option>
+                <option value="ssp"></option>
+              </select>
+            </td>
+            <td class="department" style="font-size: 8px"></td>
+            <td class="site">
+              <select name="site">
+                <option value="hatsudai"></option>
+                <option value="kawagoe"></option>
+              </select>
+            </td>
+            <td></td>
+            <td class="orderst">
+              <select name="order">
+                <option value="blank"></option>
+                <option value="発注済">発注済</option>
+                <option value="発注準備中">発注準備中</option>
+              </select>
+            </td>
+            <td class="deliveryst">
+              <select name="delivery">
+                <option value="blank"></option>
+                <option value="shipped">発送済</option>
+                <option value="processing">発送準備中</option>
+              </select>
+            </td>
+          </tr>
+          <tr>
+            <td></td>
+          </tr>
+         -->
+        </table>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+
+</html>

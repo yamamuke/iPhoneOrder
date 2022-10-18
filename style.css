@@ -1,0 +1,45 @@
+.container-fluid {
+  margin-top: 20px;
+}
+
+.department {
+  width: 100px;
+}
+
+th td {
+  text-align: center;
+}
+
+.sctask {
+  width: 100px;
+}
+
+.btn {
+  margin: 20px 0;
+}
+
+.modal-body {
+  display: flex;
+}
+
+.modal-body > input {
+  margin: 20px;
+  width: 50%;
+}
+
+.modal-body li {
+  list-style-type: none;
+  margin: 20px;
+}
+
+.modal-body span {
+  margin: 20px;
+}
+.table >tr > td {
+  border: none;
+}
+
+.modal-header {
+  margin: 0;
+  border: none;
+}
